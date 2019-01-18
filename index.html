@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Quiz 2</title>
+</head>
+<body>
+<!-- Create a form with a text field and an “insert” button using HTML.
+ -->
+ <form action="#">
+ 	<input id="user" type="text" placeholder="Add to your cart">
+ 	<button onclick="insert()">Insert</button>
+ </form>
+<!-- Add an <ul> element to your page, but no <li> inside.
+ -->
+<ul id="list"></ul>
+
+
+<script type="text/javascript">
+function insert() {
+	//get the input elementr
+	var userText = document.getElementById('user'); 
+
+	// 1. If the list is empty, display an error.
+	if(userText == "") {
+		alert("Please fill input");
+		return false;
+	}
+
+// When the button “insert” is clicked, create a new LI with the text on the field and add it as child of the UL.
+	
+	// 2. create the Text Node with the value from the input
+	var text = document.createTextNode(userText.value);
+
+	// 3. Create a li element
+	var li = document.createElement('li');
+
+	// 4.add the text node inside of the li element
+	li.appendChild(text);
+
+	// 5. Grab the ul into a variable
+	var list = document.getElementById('list');
+
+	list.appendChild(li);
+
+	// Create a link "delete" dynamically when the LI is created.
+	if(text == ""){
+	var link = document.createElement('a');
+	var aText = document.createTextNode("delete");
+	link.appendChild(aText);
+	link.href = "#";
+
+	li.appendChild(link);
+
+
+	userText.value = "";
+ 	userText.focus();
+ 			return false;
+
+}
+	// When the link “delete” is clicked, the same link should disappear.
+	// link.onclick = deleteMe;
+	// function deleteMe() {
+	// 	this.parentNode.removeChild(li);
+	// }
+}
+</script>
+
+
+
+
+
+
+
+<!-- When the link “delete” is clicked, the element should be crossed out
+
+When the link “delete” is clicked, the LI to the bottom of the list.
+
+Add another button named "delete all".
+
+When "delete all" is clicked, delete all crossed-up elements at once. -->
+</body>
+</html>
